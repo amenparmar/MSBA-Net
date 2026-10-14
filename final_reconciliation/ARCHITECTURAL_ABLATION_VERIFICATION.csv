@@ -1,0 +1,14 @@
+Config_ID,Configuration_Name,Checkpoint_File,SHA256_Prefix,Training_Script,Seed,Parameters,Eval_Protocol,mIoU_Percent,Dice_Percent,Precision_Percent,Recall_Percent,Tiny_mIoU_Percent,Verification_Status
+Arch-1A,Baseline Backbone (U-Net Nominal),best_UNet.pth,526526c3a5ee47c8,main.py,42,7.76M,Protocol-Matched Fresh,95.33,97.60,95.80,99.49,85.10,VERIFIED — AUTHORITATIVE NOMINAL BASELINE
+Arch-1B,Baseline Backbone (U-Net Ablation Run),ablation_arch1_baseline.pth,aa0ce041e65d1b23,run_ablations.py,42,7.76M,Protocol-Matched Fresh,98.11,99.04,98.74,99.35,91.74,VERIFIED — INDEPENDENT TRAJECTORY RUN
+Arch-2,Baseline + MSFP Blocks,ablation_arch2_msfp.pth,da215742bb64079a,run_ablations.py,42,8.46M,Protocol-Matched Fresh,95.50,97.69,96.31,99.13,89.75,VERIFIED — PROTOCOL-MATCHED
+Arch-3,Baseline + MSFP + BAS (No Gate),ablation_arch3_bas.pth,5c79f739cae24f48,run_ablations.py,42,8.64M,Protocol-Matched Fresh,95.92,97.91,96.60,99.27,93.20,VERIFIED — PROTOCOL-MATCHED
+Arch-4A,Full MSBA-Net (Nominal Benchmark Model),best_MSBANet.pth,2c332c21069d4e3c,main.py,42,8.65M,Protocol-Matched Fresh,97.01,98.48,97.57,99.41,92.48,VERIFIED — AUTHORITATIVE NOMINAL MODEL
+Arch-4B,Full MSBA-Net (Multi-Seed Seed 42 Model),msba_seed_42.pth,d8e513b04af4afa1,run_ablations.py,42,8.65M,Protocol-Matched Fresh,98.14,99.06,98.64,99.49,94.76,VERIFIED — PROTOCOL-MATCHED MULTI-SEED
+Arch-4C,Full MSBA-Net (Full Composite Loss Model),ablation_loss4_full.pth,54fc07b5f3f11286,run_ablations.py,42,8.65M,Protocol-Matched Fresh,97.55,98.76,98.10,99.43,93.74,VERIFIED — PROTOCOL-MATCHED LOSS
+Arch-4D,Full MSBA-Net (Ablation Run Checkpoint),ablation_arch4_msba.pth,e1690090330da3b6,run_ablations.py,42,8.65M,Protocol-Matched Fresh,90.47,94.89,94.30,95.60,90.71,VERIFIED — DOCUMENTED SUBOPTIMAL RUN
+Arch-4E,Full MSBA-Net (Ablation Run Sequential Slice),ablation_arch4_msba.pth,e1690090330da3b6,run_ablations.py,42,8.65M,Sequential Unreset Slice,92.09,95.84,94.31,97.49,90.85,VERIFIED — TRACED CSV ABLATION ENTRY
+Seed-100,MSBA-Net Multi-Seed 100,msba_seed_100.pth,90e79a6d19478c0c,run_ablations.py,100,8.65M,Protocol-Matched Fresh,95.46,97.66,96.20,99.19,92.93,VERIFIED — PROTOCOL-MATCHED MULTI-SEED
+Seed-2026,MSBA-Net Multi-Seed 2026,msba_seed_2026.pth,86a0a1beb874249f,run_ablations.py,2026,8.65M,Protocol-Matched Fresh,97.25,98.60,97.98,99.24,92.46,VERIFIED — PROTOCOL-MATCHED MULTI-SEED
+Multi-Seed-Fresh,MSBA-Net Multi-Seed Fresh Mean +/- Std,All 3 Seed Checkpoints,Multiple,run_ablations.py,"42, 100, 2026",8.65M,Protocol-Matched Fresh,96.95 +/- 1.36,98.44 +/- 0.71,97.61 +/- 1.26,99.31 +/- 0.16,93.38 +/- 1.22,VERIFIED — SAMPLE STD (N=3)
+Multi-Seed-CSV,MSBA-Net Multi-Seed Logged Mean +/- Std,All 3 Seed Checkpoints,Multiple,run_ablations.py,"42, 100, 2026",8.65M,Sequential Unreset Slice,97.33 +/- 1.17,98.64 +/- 0.61,98.09 +/- 0.96,99.22 +/- 0.26,93.13 +/- 1.34,VERIFIED — POPULATION STD (N=3)

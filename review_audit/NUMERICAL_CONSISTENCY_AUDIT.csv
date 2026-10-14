@@ -1,0 +1,44 @@
+Metric_or_Parameter,Component_or_Model,Condition_or_Category,Manuscript_Reported_Value,Manuscript_Location,Source_Evidence_Location,Ground_Truth_Verified_Value,Absolute_Discrepancy,Discrepancy_Type,Audit_Analysis_and_Correction
+mIoU,MSBA-Net,Normal,97.01%,Table 2 / Abstract,results/verified_benchmark_metrics.json,97.01%,0.00%,Exact Match,Reported value verified exactly against checkpoint evaluation
+Dice Score,MSBA-Net,Normal,98.48%,Table 2 / Abstract,results/verified_benchmark_metrics.json,98.48%,0.00%,Exact Match,Reported value verified exactly against checkpoint evaluation
+Precision,MSBA-Net,Normal,97.57%,Table 2,results/verified_benchmark_metrics.json,97.57%,0.00%,Exact Match,Reported value verified exactly against checkpoint evaluation
+Recall,MSBA-Net,Normal,99.41%,Table 2,results/verified_benchmark_metrics.json,99.41%,0.00%,Exact Match,Reported value verified exactly against checkpoint evaluation
+Tiny Defect mIoU,MSBA-Net,Tiny (<1% area),92.48%,Table 2 / Abstract,results/verified_benchmark_metrics.json,92.48%,0.00%,Exact Match,Reported value verified exactly against checkpoint evaluation
+Tiny Defect Dice,MSBA-Net,Tiny (<1% area),Not Reported,N/A,results/verified_benchmark_metrics.json,96.09%,N/A,Omission,Can be added to manuscript text for completeness
+mIoU,UNet Baseline,Normal,94.10%,Table 4 Baseline Backbone,results/verified_benchmark_metrics.json,95.33%,+1.23 pp,Under-reporting Baseline,Actual trained UNet achieved 95.33% mIoU; Table 4 reports 94.10%
+Dice Score,UNet Baseline,Normal,96.90%,Table 4 Baseline Backbone,results/verified_benchmark_metrics.json,97.60%,+0.70 pp,Under-reporting Baseline,Actual trained UNet achieved 97.60% Dice; Table 4 reports 96.90%
+mIoU,UNetPlusPlus,Normal,94.20% (as DMS-UNet proxy),Table 2 (DMS-UNet),results/verified_benchmark_metrics.json,94.13%,-0.07 pp,Proxy Substitution,UNet++ was evaluated at 94.13% and substituted for DMS-UNet (94.20%)
+mIoU,MSBA-Net,Low Contrast,39.67%,Sec VI.A L417,results/verified_benchmark_metrics.json,39.67%,0.00%,Factual Inversion in Text,Narrative falsely claims MSBA-Net beat baselines; UNet and UNet++ scored higher
+mIoU,UNet Baseline,Low Contrast,Not Reported,Sec VI.A,results/verified_benchmark_metrics.json,44.51%,+4.84 pp vs MSBA,Omission / Superiority,UNet outperforms MSBA-Net by +4.84 pp under low contrast
+mIoU,UNetPlusPlus,Low Contrast,Not Reported,Sec VI.A,results/verified_benchmark_metrics.json,50.26%,+10.59 pp vs MSBA,Omission / Superiority,UNet++ outperforms MSBA-Net by +10.59 pp under low contrast
+mIoU,MSBA-Net,Sensor Noise,2.33%,Sec VI.A L417,results/verified_benchmark_metrics.json,2.33%,0.00%,Exact Match,Model collapses under noise due to high-frequency edge corruption
+mIoU,UNet Baseline,Sensor Noise,Not Reported,Sec VI.A,results/verified_benchmark_metrics.json,4.29%,+1.96 pp vs MSBA,Omission,UNet retains higher mIoU than MSBA-Net under sensor noise
+mIoU,UNetPlusPlus,Sensor Noise,Not Reported,Sec VI.A,results/verified_benchmark_metrics.json,2.24%,-0.09 pp vs MSBA,Omission,UNet++ also collapses under sensor noise
+mIoU,MSBA-Net,Motion Blur,26.29%,Sec VI.A L417,results/verified_benchmark_metrics.json,26.29%,0.00%,Exact Match,Reported value verified against checkpoint evaluation
+mIoU,UNet Baseline,Motion Blur,Not Reported,Sec VI.A,results/verified_benchmark_metrics.json,33.51%,+7.22 pp vs MSBA,Omission / Superiority,UNet outperforms MSBA-Net by +7.22 pp under motion blur
+mIoU,UNetPlusPlus,Motion Blur,Not Reported,Sec VI.A,results/verified_benchmark_metrics.json,39.12%,+12.83 pp vs MSBA,Omission / Superiority,UNet++ outperforms MSBA-Net by +12.83 pp under motion blur
+Total Parameters,MSBA-Net,Full Architecture,9.38 Million,Table 1 / Table 4 / Sec V.H,models.py (PyTorch numel),8650786 (8.65 M),-0.73 M (-7.78%),Over-reported in Manuscript,Actual implementation has 8.65M params; correct 9.38M to 8.65M
+Total Parameters,UNet Baseline,Backbone,7.76 Million,Table 4 Baseline Backbone,models.py (PyTorch numel),7762465 (7.76 M),0.00 M,Exact Match,Verified parameter match for baseline backbone
+Total Parameters,UNetPlusPlus,Dense Nested,9.15 Million,Table 4 (+BAS row),models.py (PyTorch numel),9159105 (9.16 M),+0.01 M,Exact Match,Parameter count of UNet++ corresponds to Table 4 row 3
+Total Training Epochs,All Models,Optimization,100 Epochs,Table 1 L270 / Fig 3 L396,main.py L260,12 Epochs,-88 Epochs,Inflation in Narrative,Code executed for 12 epochs; correct manuscript claim of 100 epochs
+Encoder Channels,MSBA-Net,Stages 1 to 4,"{64, 128, 256, 512}",Table 1 L260,models.py L199 / main.py L253,"{32, 64, 128, 256}",2x Reduction,Incorrect Specification,Code uses base_ch=32; Table 1 incorrectly lists base_ch=64 progression
+Mean Recall,MSBA-Net,Table 3 Overall,99.41%,Table 3 L336,Table 3 Row Average (N=6),99.4167% -> 99.42%,-0.01 pp,Rounding Error,Arithmetic mean of 6 classes is 99.4167% which rounds to 99.42%
+mIoU Gain,MSFP Block,Table 4 Ablation,+1.75 pp (94.10 to 95.85),Table 4 / L362,models/ (no checkpoint exists),Unverified,N/A,Unverified Ablation,No standalone +MSFP checkpoint exists on disk; requires new experiment or disclosure
+mIoU Gain,BAS Stream,Table 4 Ablation,+0.63 pp (95.85 to 96.48),Table 4 / L362,models/ (no checkpoint exists),Unverified,N/A,Unverified Ablation,No standalone +BAS checkpoint exists on disk; requires new experiment or disclosure
+mIoU Gain,BGFF Gate,Table 4 Ablation,+0.53 pp (96.48 to 97.01),Table 4 / L362,models/ (no checkpoint exists),Unverified,N/A,Unverified Ablation,No intermediate checkpoint exists on disk; requires new experiment or disclosure
+mIoU Gain vs GNA-PSC,MSBA-Net,Comparative Gain,+13.51%,Sec V.B L314,Table 2 Calculation,+13.51 pp (Rel: +16.18%),N/A,Unit Conflation,Reported +13.51% is absolute pp; relative improvement is +16.18%
+mIoU Gain vs MixSegNet,MSBA-Net,Comparative Gain,+12.21%,Sec V.B L314,Table 2 Calculation,+12.21 pp (Rel: +14.40%),N/A,Unit Conflation,Reported +12.21% is absolute pp; relative improvement is +14.40%
+mIoU Gain vs EF2Net,MSBA-Net,Comparative Gain,+8.59%,Sec V.B L314,Table 2 Calculation,+8.59 pp (Rel: +9.71%),N/A,Unit Conflation,Reported +8.59% is absolute pp; relative improvement is +9.71%
+mIoU Gain vs DAMF-Net,MSBA-Net,Comparative Gain,+5.36%,Sec V.B L314,Table 2 Calculation,+5.36 pp (Rel: +5.85%),N/A,Unit Conflation,Reported +5.36% is absolute pp; relative improvement is +5.85%
+mIoU Gain vs DMS-UNet,MSBA-Net,Comparative Gain,+2.81%,Sec V.B L314,Table 2 Calculation,+2.81 pp (Rel: +2.98%),N/A,Unit Conflation,Reported +2.81% is absolute pp; relative improvement is +2.98%
+Tiny mIoU Gain vs DMS-UNet,MSBA-Net,Tiny Defect Gain,+4.08%,Sec V.B L314,Table 2 Calculation,+4.08 pp (Rel: +4.62%),N/A,Unit Conflation,Reported +4.08% is absolute pp; relative improvement is +4.62%
+Tiny mIoU Gain vs MixSegNet,MSBA-Net,Tiny Defect Gain,+16.38%,Sec V.B L314,Table 2 Calculation,+16.38 pp (Rel: +21.52%),N/A,Unit Conflation,Reported +16.38% is absolute pp; relative improvement is +21.52%
+Tiny mIoU Gain vs GNA-PSC,MSBA-Net,Tiny Defect Gain,+20.08%,Presentation Scripts,Table 2 Calculation,+20.08 pp (Rel: +27.73%),N/A,Unit Conflation,Absolute gain is +20.08 pp; relative improvement is +27.73%
+BCE Loss Weight,Composite Loss,Loss Formulation,0.3,Sec IV.D L187,losses.py L41 / L55,1.0 (Fig 1: 0.4),+0.7 in code,Coefficient Discrepancy,Paper claims alpha=0.3; code uses implicit weight 1.0; Fig 1 displays 0.4
+Dice Loss Weight,Composite Loss,Loss Formulation,0.3,Sec IV.D L187,losses.py L41 / L55,1.0 (Fig 1: 0.6),+0.7 in code,Coefficient Discrepancy,Paper claims beta=0.3; code uses lambda_dice=1.0; Fig 1 displays 0.6
+Focal Loss Weight,Composite Loss,Loss Formulation,0.2,Sec IV.D L187,losses.py L41 / L55,0.5 (Fig 1: 0.3),+0.3 in code,Coefficient Discrepancy,Paper claims gamma=0.2; code uses lambda_focal=0.5; Fig 1 displays 0.3
+Boundary Loss Weight,Composite Loss,Loss Formulation,0.2,Sec IV.D L187,losses.py L41 / L55,0.4 (Fig 1: 0.5),+0.2 in code,Coefficient Discrepancy,Paper claims lambda=0.2; code uses lambda_boundary=0.4; Fig 1 displays 0.5
+Sensor Noise Std Dev,Stress-Testing,Degradation,sigma=25,Sec VI.A L415,dataset.py L175,sigma=18.0,-7.0 in code,Parameter Discrepancy,Manuscript claims sigma=25; dataset.py generates noise with sigma=18.0
+Low Contrast Parameter,Stress-Testing,Degradation,gamma=1.8,Sec VI.A L415,dataset.py L172,Linear Scale 0.45,Formula Discrepancy,Manuscript claims gamma correction (gamma=1.8); code applies linear contrast scaling (factor 0.45)
+Defocus Blur Kernel,Stress-Testing,Degradation,sigma=3.0,Sec VI.A L415,dataset.py L180,PIL Radius 2.5,-0.5 in code,Parameter Discrepancy,Manuscript claims Gaussian blur sigma=3.0; code applies PIL GaussianBlur(radius=2.5)
+Inference Throughput,MSBA-Net,TensorRT FP16,88.5 FPS (11.3 ms),Sec V.H L408,Disk (no TensorRT script),Unavailable,Unverified,Unsupported Claim,No TensorRT script or engine file exists on disk; qualify as theoretical projection or remove

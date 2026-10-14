@@ -1,0 +1,113 @@
+{
+  "UNet": {
+    "normal": {
+      "iou": 95.33,
+      "dice": 97.6,
+      "precision": 95.8,
+      "recall": 99.49,
+      "accuracy": 99.93
+    },
+    "low_contrast": {
+      "iou": 44.51,
+      "dice": 61.46,
+      "precision": 80.04,
+      "recall": 50.33,
+      "accuracy": 99.04
+    },
+    "noise": {
+      "iou": 4.29,
+      "dice": 8.22,
+      "precision": 4.39,
+      "recall": 64.41,
+      "accuracy": 77.56
+    },
+    "blur": {
+      "iou": 33.51,
+      "dice": 49.67,
+      "precision": 74.41,
+      "recall": 37.72,
+      "accuracy": 98.85
+    },
+    "tiny_defects": {
+      "iou": 85.1,
+      "dice": 91.95,
+      "precision": 88.69,
+      "recall": 95.45,
+      "accuracy": 99.97
+    }
+  },
+  "UNetPlusPlus": {
+    "normal": {
+      "iou": 94.13,
+      "dice": 96.95,
+      "precision": 94.96,
+      "recall": 99.08,
+      "accuracy": 99.9
+    },
+    "low_contrast": {
+      "iou": 50.26,
+      "dice": 66.48,
+      "precision": 94.67,
+      "recall": 51.62,
+      "accuracy": 99.22
+    },
+    "noise": {
+      "iou": 2.24,
+      "dice": 4.37,
+      "precision": 2.25,
+      "recall": 79.66,
+      "accuracy": 45.5
+    },
+    "blur": {
+      "iou": 39.12,
+      "dice": 56.08,
+      "precision": 70.04,
+      "recall": 46.99,
+      "accuracy": 98.88
+    },
+    "tiny_defects": {
+      "iou": 90.05,
+      "dice": 94.76,
+      "precision": 93.74,
+      "recall": 95.82,
+      "accuracy": 99.98
+    }
+  },
+  "MSBANet": {
+    "normal": {
+      "iou": 97.01,
+      "dice": 98.48,
+      "precision": 97.57,
+      "recall": 99.41,
+      "accuracy": 99.95
+    },
+    "low_contrast": {
+      "iou": 39.67,
+      "dice": 56.56,
+      "precision": 84.24,
+      "recall": 43.27,
+      "accuracy": 99.0
+    },
+    "noise": {
+      "iou": 2.33,
+      "dice": 4.54,
+      "precision": 2.34,
+      "recall": 77.92,
+      "accuracy": 48.75
+    },
+    "blur": {
+      "iou": 26.29,
+      "dice": 41.43,
+      "precision": 74.39,
+      "recall": 28.93,
+      "accuracy": 98.76
+    },
+    "tiny_defects": {
+      "iou": 92.48,
+      "dice": 96.09,
+      "precision": 97.38,
+      "recall": 94.84,
+      "accuracy": 99.99
+    }
+  }
+}

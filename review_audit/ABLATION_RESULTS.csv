@@ -1,0 +1,13 @@
+Category,Configuration,Seed,mIoU (%),Dice (%),Precision (%),Recall (%),Tiny mIoU (%),Parameters,Checkpoint
+Architectural Ablation,Arch-1: Baseline Backbone (U-Net),42,98.11,99.04,98.74,99.35,91.74,7.76M,ablation_arch1_baseline.pth
+Architectural Ablation,Arch-2: Baseline + MSFP Blocks,42,95.3,97.56,96.35,98.83,89.2,8.46M,ablation_arch2_msfp.pth
+Architectural Ablation,Arch-3: Baseline + MSFP + BAS (No Gate),42,95.38,97.63,96.12,99.21,92.58,8.64M,ablation_arch3_bas.pth
+Architectural Ablation,Arch-4: Full MSBA-Net (MSFP+BAS+BGFF),42,92.09,95.84,94.31,97.49,90.85,8.65M,ablation_arch4_msba.pth
+Loss Formulation Ablation,Loss-1: L_BCE Only,42,93.91,96.82,97.73,96.01,88.91,8.65M,ablation_loss1_bce.pth
+Loss Formulation Ablation,Loss-2: L_BCE + L_Dice,42,97.28,98.62,97.89,99.36,93.76,8.65M,ablation_loss2_dice.pth
+Loss Formulation Ablation,Loss-3: L_BCE + L_Dice + L_Focal,42,92.76,96.21,95.79,96.76,92.05,8.65M,ablation_loss3_focal.pth
+Loss Formulation Ablation,Loss-4: Full Composite (BCE+Dice+Focal+Bound),42,97.86,98.91,98.4,99.44,93.82,8.65M,ablation_loss4_full.pth
+Multi-Seed Variance,MSBA-Net (Seed 42),42,98.06,99.02,98.55,99.49,94.68,8.65M,msba_seed_42.pth
+Multi-Seed Variance,MSBA-Net (Seed 100),100,95.68,97.78,96.76,98.87,92.49,8.65M,msba_seed_100.pth
+Multi-Seed Variance,MSBA-Net (Seed 2026),2026,98.26,99.12,98.96,99.29,92.23,8.65M,msba_seed_2026.pth
+Multi-Seed Aggregate,MSBA-Net Mean +/- Std (N=3),"42, 100, 2026",97.33 +/- 1.17,98.64 +/- 0.61,98.09 +/- 0.96,99.22 +/- 0.26,-,8.65M,All Seeds

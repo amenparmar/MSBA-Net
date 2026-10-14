@@ -1,0 +1,22 @@
+Category,Configuration,Seed/Split,mIoU (%),Dice (%),Precision (%),Recall (%),Tiny mIoU (<1%),Parameters,Checkpoint,Protocol Note
+Controlled Architectural Ablation,Arch-1: Baseline Backbone (U-Net),Seed 42 (Pre-cached Split),96.94,98.44,97.41,99.51,88.27,7.76M,reproduced_arch1_unet.pth,Zero-drift controlled factorial run (12 ep)
+Controlled Architectural Ablation,Arch-2: Baseline + MSFP Blocks,Seed 42 (Pre-cached Split),97.89,98.93,98.66,99.21,93.18,8.46M,reproduced_arch2_msfp.pth,Zero-drift controlled factorial run (12 ep)
+Controlled Architectural Ablation,Arch-3: Baseline + MSFP + BAS (No Gate),Seed 42 (Pre-cached Split),98.31,99.15,98.90,99.40,93.48,8.64M,reproduced_arch3_bas.pth,Zero-drift controlled factorial run (12 ep)
+Controlled Architectural Ablation,Arch-4: Full MSBA-Net (Cold Start),Seed 42 (Pre-cached Split),94.54,97.17,96.49,97.87,92.98,8.65M,reproduced_arch4_msba.pth,Zero-drift controlled factorial run (12 ep; gating hesitation)
+Converged Reference Benchmark,MSBA-Net (Nominal Run),Seed 42 (Standard Split),97.01,98.48,97.57,99.41,92.48,8.65M,best_MSBANet.pth,Nominal primary benchmark model
+Multi-Seed Standardized Variance,MSBA-Net Seed 42,Seed 42 (Standard Split),98.14,99.06,98.64,99.49,94.76,8.65M,msba_seed_42.pth,Independent fixed split evaluation
+Multi-Seed Standardized Variance,MSBA-Net Seed 100,Seed 100 (Standard Split),95.46,97.66,96.20,99.19,92.93,8.65M,msba_seed_100.pth,Independent fixed split evaluation
+Multi-Seed Standardized Variance,MSBA-Net Seed 2026,Seed 2026 (Standard Split),97.25,98.60,97.98,99.24,92.46,8.65M,msba_seed_2026.pth,Independent fixed split evaluation
+Multi-Seed Standardized Aggregate,MSBA-Net Mean ± Sample Std (N=3),"Seeds 42, 100, 2026",96.95 ± 1.37,98.44 ± 0.71,97.61 ± 1.26,99.31 ± 0.16,93.38 ± 1.22,8.65M,All Multi-Seed Checkpoints,Unbiased sample std (ddof=1); pop std = 1.11%
+Composite Loss Ablation,Loss-1: L_BCE Only,Seed 42 (Standard Split),93.61,96.67,97.92,95.52,89.75,8.65M,ablation_loss1_bce.pth,Standardized split evaluation
+Composite Loss Ablation,Loss-2: L_BCE + L_Dice,Seed 42 (Standard Split),97.29,98.62,97.96,99.31,93.69,8.65M,ablation_loss2_dice.pth,Standardized split evaluation
+Composite Loss Ablation,Loss-3: L_BCE + L_Dice + L_Focal,Seed 42 (Standard Split),93.83,96.78,96.41,97.21,92.58,8.65M,ablation_loss3_focal.pth,Standardized split evaluation
+Composite Loss Ablation,Loss-4: Full Composite (BCE+Dice+Focal+Bound),Seed 42 (Standard Split),97.55,98.76,98.10,99.43,93.74,8.65M,ablation_loss4_full.pth,Standardized split evaluation
+Historical Sequential Slice (Run 1),Arch-1: Baseline U-Net (Run 1 Slice),Seed 42 (Drifting RNG Slice),98.11,99.04,98.74,99.35,91.74,7.76M,ablation_arch1_baseline.pth,Historical unreset RNG sequence
+Historical Sequential Slice (Run 1),Arch-2: Baseline + MSFP (Run 1 Slice),Seed 42 (Drifting RNG Slice),95.30,97.56,96.35,98.83,89.20,8.46M,ablation_arch2_msfp.pth,Historical unreset RNG sequence
+Historical Sequential Slice (Run 1),Arch-3: Baseline + MSFP + BAS (Run 1 Slice),Seed 42 (Drifting RNG Slice),95.38,97.63,96.12,99.21,92.58,8.64M,ablation_arch3_bas.pth,Historical unreset RNG sequence
+Historical Sequential Slice (Run 1),Arch-4: Full MSBA-Net (Run 1 Slice),Seed 42 (Drifting RNG Slice),92.09,95.84,94.31,97.49,90.85,8.65M,ablation_arch4_msba.pth,Historical unreset RNG sequence
+Historical Sequential Slice (Multi-Seed),MSBA-Net Seed 42 (Slice),Seed 42 (Drifting RNG Slice),98.06,99.02,98.55,99.49,94.68,8.65M,msba_seed_42.pth,Historical unreset RNG sequence
+Historical Sequential Slice (Multi-Seed),MSBA-Net Seed 100 (Slice),Seed 100 (Drifting RNG Slice),95.68,97.78,96.76,98.87,92.49,8.65M,msba_seed_100.pth,Historical unreset RNG sequence
+Historical Sequential Slice (Multi-Seed),MSBA-Net Seed 2026 (Slice),Seed 2026 (Drifting RNG Slice),98.26,99.12,98.96,99.29,92.23,8.65M,msba_seed_2026.pth,Historical unreset RNG sequence
+Historical Sequential Slice Aggregate,MSBA-Net Slice Mean ± Std,"Seeds 42, 100, 2026 (Slices)",97.33 ± 1.44,98.64 ± 0.75,98.09 ± 1.17,99.22 ± 0.32,93.13 ± 1.34,8.65M,All Multi-Seed Checkpoints,Historical unreset RNG slice aggregate (pop std = 1.17%)

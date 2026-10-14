@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# LaTeX build intermediates
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+~$*
+.vscode/
+.idea/
+
+# Temporary scratch and extraction testing folders
+scratch/
+tools/tectonic.exe

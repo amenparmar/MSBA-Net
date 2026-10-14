@@ -1,0 +1,5 @@
+Category,Configuration,Seed,mIoU (%),Dice (%),Precision (%),Recall (%),Tiny mIoU (%),Parameters,Checkpoint,Training Time (s)
+Controlled Architectural Ablation (Rerun),Arch-1: Baseline Backbone (U-Net),42,96.94,98.44,97.41,99.51,88.27,7.76M,reproduced_arch1_unet.pth,87.9
+Controlled Architectural Ablation (Rerun),Arch-2: Baseline + MSFP Blocks,42,97.89,98.93,98.66,99.21,93.18,8.46M,reproduced_arch2_msfp.pth,139.4
+Controlled Architectural Ablation (Rerun),Arch-3: Baseline + MSFP + BAS (No Gate),42,98.31,99.15,98.9,99.4,93.48,8.64M,reproduced_arch3_bas.pth,175.2
+Controlled Architectural Ablation (Rerun),Arch-4: Full MSBA-Net (MSFP+BAS+BGFF),42,94.54,97.17,96.49,97.87,92.98,8.65M,reproduced_arch4_msba.pth,189.2
