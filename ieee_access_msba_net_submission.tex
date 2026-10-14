@@ -10,6 +10,7 @@
 \usepackage{array}
 \usepackage{microtype}
 \usepackage{url}
+\usepackage[hidelinks]{hyperref}
 
 % Ensure XeTeX / tectonic driver compatibility
 \providecommand{\pdfshellescape}{0}
@@ -400,6 +401,9 @@ Importantly, these degradation experiments evaluate mathematical noise and blur 
 This paper presented MSBA-Net, an end-to-end deep segmentation framework engineered for small, low-contrast surface defect inspection on strip steel. By integrating Multi-Scale Feature Preservation (MSFP) blocks across encoder stages, the network preserves localized crack signatures through parallel dilated convolutional paths ($r \in \{1, 2, 4\}$). An auxiliary Boundary-Aware Stream (BAS) supervised by morphological gradient targets actively guides decoder representations via a Boundary-Guided Feature Fusion (BGFF) spatial attention gate. On a controlled procedural synthetic benchmark, MSBA-Net achieves 97.01\% mIoU and 98.48\% Dice score ($96.95\% \pm 1.37\%$ across seeds with sample standard deviation; $\pm 1.11\%$ population standard deviation), with 92.48\% mIoU on micro-scale defects ($<1\%$ area). Crucially, because these evaluations are conducted on procedurally generated synthetic data, they do not establish deployment readiness on physical industrial production lines. Rigorous stress-testing characterized operational boundaries under severe noise and contrast reduction, demonstrating both the localized advantages and environmental sensitivities of boundary-guided segmentation.
 
 Future research will focus on two directions: (1) physical rolling-mill validation and synthetic-to-real domain adaptation using physical strip steel production imagery, and (2) incorporating noise-robust edge filtering priors to enhance boundary stream stability under optical interference.
+
+\section*{Code and Data Availability}
+The code and associated project files for MSBA-Net are available at: \url{https://github.com/amenparmar/MSBA-Net}. The procedural synthetic defect benchmark can be generated directly using the dataset generator scripts provided in the repository.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references_revised}
